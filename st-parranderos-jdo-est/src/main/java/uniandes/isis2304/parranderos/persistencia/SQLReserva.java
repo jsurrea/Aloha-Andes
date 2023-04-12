@@ -15,9 +15,9 @@ public class SQLReserva {
 	/**
 	 * @return El número de tuplas insertadas
 	 */
-	public long crearReserva (PersistenceManager pm, long id_reserva, Timestamp creacion, Timestamp inicio, int periodos, int costo) {
-        Query q = pm.newQuery(SQL, "INSERT INTO Reserva" + "(id_reserva, creacion, inicio, periodos, costo) values (?,?,?,?,?)");
-        q.setParameters(id_reserva, creacion, inicio, periodos, costo);
+	public long crearReserva (PersistenceManager pm, long id_reserva, Timestamp creacion, Timestamp inicio, int periodos, int costo, long cliente, long oferta) {
+        Query q = pm.newQuery(SQL, "INSERT INTO Reserva" + "(id_reserva, creacion, inicio, periodos, costo, cliente, oferta) values (?,?,?,?,?,?,?)");
+        q.setParameters(id_reserva, creacion, inicio, periodos, costo, cliente, oferta);
         return (long) q.executeUnique();
 	}
 	
@@ -25,7 +25,7 @@ public class SQLReserva {
 	 * @return El número de tuplas insertadas
 	 */
 	public long borrarReserva (PersistenceManager pm, long id_reserva) {
-        Query q = pm.newQuery(SQL, "DELETE FROM Reserva WHERE id = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM Reserva WHERE id_reserva = ?");
         q.setParameters(id_reserva);
         return (long) q.executeUnique();
 	}

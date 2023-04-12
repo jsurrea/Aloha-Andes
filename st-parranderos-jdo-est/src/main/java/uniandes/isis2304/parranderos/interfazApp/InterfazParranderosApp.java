@@ -369,7 +369,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     			Timestamp inicio = Timestamp.valueOf(inputArray[1]);
     			int periodos = Integer.parseInt(inputArray[2]);
     			int costo = Integer.parseInt(inputArray[3]);
-    			Reserva tb = parranderos.crearReserva(creacion, inicio, periodos, costo);
+    			long cliente = Long.parseLong(inputArray[4]);
+    			long oferta = Long.parseLong(inputArray[5]);
+    			Reserva tb = parranderos.crearReserva(creacion, inicio, periodos, costo, cliente, oferta);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo crear un Reserva con datos: " + input);

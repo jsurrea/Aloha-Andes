@@ -29,7 +29,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
-import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
 
 /**
  * Clase con métodos de prueba de conexión a la base de datos
@@ -159,54 +158,6 @@ public class ConexionTest
 			String msg = "Prueba de credenciales incorrectas correcta.\n";
 			msg += "Revise el log de parranderos y el de datanucleus para conocer el detalle de la excepción";
 			System.out.println (msg);
-		}
-    }
-
-    /**
-     * Método que prueba el intento de acceso a una base de datos inaccesible, por causa:
-     * 1. El esquema no ha sido creado o es erróneo - Intentar acceder a una tabla inexistente
-     */
-    @Test
-    public void tablaInexistenteTest ()
-    {
-    	// Probar primero la conexión a la base de datos
-		try
-		{
-	    	log.info ("Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema");
-			parranderos = new Parranderos (openConfig (CONFIG_TABLAS_B));
-		}
-		catch (Exception e)
-		{
-//			e.printStackTrace();
-			log.info ("Prueba de tabla inexistente incompleta. No se pudo conectar a la base de datos !!. La excepción generada es: " + e.getClass ().getName ());
-			log.info ("La causa es: " + e.getCause ().toString ());
-
-			String msg = "Prueba de tabla inexistente incompleta. No se pudo conectar a la base de datos !!.\n";
-			msg += "Revise el log de parranderos y el de datanucleus para conocer el detalle de la excepción";
-			System.out.println (msg);
-			fail (msg);
-		}
-		
-		// Ahora si se puede probar si la tabla existe o no...
-		try
-		{
-			parranderos.darTiposBebida ();
-			fail ("Debería fallar. La tabla consultada no existe en la BD");
-		}
-		catch (Exception e)
-		{
-//			e.printStackTrace();
-			log.info ("Prueba de tabla inexistente correcta. La excepción generada es: " + e.getClass ().getName ());
-			log.info ("La causa es: " + e.getCause ().toString ());
-
-			String msg = "Prueba de tabla inexistente correcta.\n";
-			msg += "Revise el log de parranderos y el de datanucleus para conocer el detalle de la excepción";
-			System.out.println (msg);
-		}
-		finally
-		{
-			parranderos.limpiarParranderos ();
-    		parranderos.cerrarUnidadPersistencia ();    		
 		}
     }
 

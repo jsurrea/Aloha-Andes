@@ -8,13 +8,17 @@ public class Reserva {
 	private Timestamp inicio;
 	private int periodos;
 	private int costo;
+	private long cliente;
+	private long oferta;
 	
-	public Reserva(long id_reserva, Timestamp creacion, Timestamp inicio, int periodos, int costo) {
+	public Reserva(long id_reserva, Timestamp creacion, Timestamp inicio, int periodos, int costo, long cliente, long oferta) {
 		this.setId_reserva(id_reserva);
 		this.setCreacion(creacion);
 		this.setInicio(inicio);
 		this.setPeriodos(periodos);
 		this.setCosto(costo);
+		this.setCliente(cliente);
+		this.setOferta(oferta);
 	}
 
 	public long getId_reserva() {
@@ -59,5 +63,21 @@ public class Reserva {
 	@Override
 	public String toString() {
 		return "AlohAndes ["+"id_reserva="+id_reserva+"creacion="+creacion+"inicio="+inicio+"periodos="+periodos+"costo="+costo+"]";
+	}
+
+	public long getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(long cliente) {
+		this.cliente = cliente;
+	}
+
+	public long getOferta() {
+		return oferta;
+	}
+
+	public void setOferta(long oferta) {
+		this.oferta = oferta;
 	}
 }

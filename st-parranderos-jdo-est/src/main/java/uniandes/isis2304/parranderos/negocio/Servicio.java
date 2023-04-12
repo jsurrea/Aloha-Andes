@@ -6,6 +6,7 @@ public class Servicio {
 	private String descripcion;
 	private int costo;
 	private String tipo;
+	// TODO oferta
 	public int getId_servicio() {
 		return id_servicio;
 	}

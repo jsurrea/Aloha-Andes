@@ -25,7 +25,7 @@ public class SQLOfertaAlojamiento {
 	 * @return El número de tuplas insertadas
 	 */
 	public long borrarOfertaAlojamiento (PersistenceManager pm, long id_oferta) {
-        Query q = pm.newQuery(SQL, "DELETE FROM OfertaAlojamiento WHERE id = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM OfertaAlojamiento WHERE id_oferta = ?");
         q.setParameters(id_oferta);
         return (long) q.executeUnique();
 	}

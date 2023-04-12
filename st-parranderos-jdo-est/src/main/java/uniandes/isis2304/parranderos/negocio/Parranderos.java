@@ -80,9 +80,9 @@ public class Parranderos
         return cliente;
 	}
 	
-	public Reserva crearReserva (Timestamp creacion, Timestamp inicio, int periodos, int costo) {
+	public Reserva crearReserva (Timestamp creacion, Timestamp inicio, int periodos, int costo, long cliente, long oferta) {
         log.info ("Adicionando Reserva");
-        Reserva reserva = pp.crearReserva(creacion, inicio, periodos, costo);		
+        Reserva reserva = pp.crearReserva(creacion, inicio, periodos, costo, cliente, oferta);		
         log.info ("Adicionado Reserva");
         return reserva;
 	}

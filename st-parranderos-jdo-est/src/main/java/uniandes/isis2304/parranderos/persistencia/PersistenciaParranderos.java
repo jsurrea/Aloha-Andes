@@ -117,7 +117,7 @@ public class PersistenciaParranderos
 		
 		// Define los nombres por defecto de las tablas de la base de datos
 		tablas = new LinkedList<String> ();
-		tablas.add ("index_sequence"); //TODO
+		tablas.add("index_sequence");
 		tablas.add("AlohAndes");
 		tablas.add("Cliente");
 		tablas.add("Operador");
@@ -317,7 +317,7 @@ public class PersistenciaParranderos
 		}
 		catch (Exception e)
 		{
-//      	e.printStackTrace();
+			e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return null;
 		}
@@ -331,19 +331,19 @@ public class PersistenciaParranderos
 		}
 	}
 	
-	public Reserva crearReserva(Timestamp creacion, Timestamp inicio, int periodos, int costo) {
+	public Reserva crearReserva(Timestamp creacion, Timestamp inicio, int periodos, int costo, long cliente, long oferta) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
 		{
 			tx.begin();
 			long id_reserva = nextval ();
-			long tuplasInsertadas = sqlReserva.crearReserva(pm, id_reserva, creacion, inicio, periodos, costo);
+			long tuplasInsertadas = sqlReserva.crearReserva(pm, id_reserva, creacion, inicio, periodos, costo, cliente, oferta);
 			tx.commit();
 
 			log.trace ("Inserción de Reserva: " + id_reserva + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Reserva (id_reserva, creacion, inicio, periodos, costo);
+			return new Reserva (id_reserva, creacion, inicio, periodos, costo, cliente, oferta);
 		}
 		catch (Exception e)
 		{

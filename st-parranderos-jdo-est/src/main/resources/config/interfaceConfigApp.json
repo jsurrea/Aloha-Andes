@@ -30,7 +30,7 @@
 				},
 				{
 					"label": "RF6 - Borrar Oferta",
-					"event": "borrarOferta"
+					"event": "borrarOfertaAlojamiento"
 				}
 			]
 		},
