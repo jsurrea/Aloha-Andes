@@ -59,7 +59,7 @@ public class Parranderos
 	 * 			Requerimientos Funcionales
 	 *****************************************************************/
 
-	public Operador crearOperador (String nombre, String correo, String contrasena, String tipo_operador, String alohandes) {
+	public Operador crearOperador (String nombre, String correo, String contrasena, String tipo_operador) {
         log.info ("Adicionando Operador");
         Operador operador = pp.crearOperador(nombre, correo, contrasena, tipo_operador);		
         log.info ("Adicionado Operador");
@@ -73,7 +73,7 @@ public class Parranderos
         return ofertaAlojamiento;
 	}
 	
-	public Cliente crearCliente (long cedula, String nombre, String correo, String contrasena, String tipo, String alohandes) {
+	public Cliente crearCliente (long cedula, String nombre, String correo, String contrasena, String tipo) {
         log.info ("Adicionando Cliente");
         Cliente cliente = pp.crearCliente(cedula, nombre, correo, contrasena, tipo);		
         log.info ("Adicionado Cliente");
