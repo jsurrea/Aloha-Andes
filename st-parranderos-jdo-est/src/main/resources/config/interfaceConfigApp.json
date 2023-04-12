@@ -10,27 +10,27 @@
 			[
 				{
 					"label": "RF1 - Crear Operador",
-					"event": ""
+					"event": "crearOperador"
 				},
 				{
 					"label": "RF2 - Crear Oferta",
-					"event": ""
+					"event": "crearOferta"
 				},
 				{
 					"label": "RF3 - Crear Cliente",
-					"event": ""
+					"event": "crearCliente"
 				},
 				{
 					"label": "RF4 - Crear Reserva",
-					"event": ""
+					"event": "crearReserva"
 				},
 				{
 					"label": "RF5 - Borrar Reserva",
-					"event": ""
+					"event": "borrarReserva"
 				},
 				{
 					"label": "RF6 - Borrar Oferta",
-					"event": ""
+					"event": "borrarOferta"
 				}
 			]
 		},
@@ -39,19 +39,19 @@
 			[
 				{
 					"label": "RFC1 - Ingresos recibidos",
-					"event": ""
+					"event": "ingresosRecibidos"
 				},
 				{
 					"label": "RFC2 - Ofertas más populares",
-					"event": ""
+					"event": "ofertasPopulares"
 				},
 				{
 					"label": "RFC3 - Índice de ocupación",
-					"event": ""
+					"event": "indiceOcupacion"
 				},
 				{
 					"label": "RFC4 - Alojamientos disponibles",
-					"event": ""
+					"event": "alojamientosDisponibles"
 				}
 			]
 		},	
