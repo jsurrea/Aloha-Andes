@@ -1,0 +1,32 @@
+18:37:30,008 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+18:37:30,171 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+18:37:37,964 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
+18:37:37,965 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
+18:37:37,973 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
+18:38:34,265 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+18:38:34,373 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+18:38:41,559 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
+18:38:41,560 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
+18:38:41,570 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
+18:45:52,398 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+18:45:52,616 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+18:45:59,755 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
+18:45:59,756 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
+18:45:59,767 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
+18:46:04,655 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+18:46:04,806 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+18:46:12,349 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
+18:46:12,349 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
+18:46:12,361 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
+18:46:16,449 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:46:16,451 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:46:16,654 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - NO se encontró un archivo de configuración válido
+18:47:18,029 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:47:18,036 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:47:18,086 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:47:33,744 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ingresos recibidos
+18:47:39,045 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ingresos recibidos
+18:47:43,418 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando clientesFrecuentes
+18:47:43,445 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó clientesFrecuentes
+18:47:57,007 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando indiceOcupacion
+18:47:57,174 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó indiceOcupacion
