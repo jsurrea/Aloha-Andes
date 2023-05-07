@@ -575,4 +575,61 @@ public class PersistenciaParranderos
 			pm.close();
 		}
 	}
+	
+	
+	
+	
+	public String clientesFrecuentes(long id_oferta) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.clientesFrecuentes(pm, id_oferta);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String ofertasBajaDemanda() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.ofertasBajaDemanda(pm);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
  }

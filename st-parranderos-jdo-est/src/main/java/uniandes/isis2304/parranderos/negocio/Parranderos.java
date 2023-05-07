@@ -146,4 +146,19 @@ public class Parranderos
 		log.info("Terminó usoUsuario");
 		return resp;
 	}
+	
+	
+	public String clientesFrecuentes(long id_oferta) {
+		log.info("Ejecutando clientesFrecuentes");
+		String resp = pp.clientesFrecuentes(id_oferta);
+		log.info("Terminó clientesFrecuentes");
+		return resp;
+	}
+	
+	public String ofertasBajaDemanda() {
+		log.info("Ejecutando ofertasBajaDemanda");
+		String resp = pp.ofertasBajaDemanda();
+		log.info("Terminó ofertasBajaDemanda");
+		return resp;
+	}
 }

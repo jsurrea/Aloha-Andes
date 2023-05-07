@@ -85,4 +85,32 @@ public class SQLOfertaAlojamiento {
 		}
 		return rta.toString();
 	}
+	
+	public String clientesFrecuentes(PersistenceManager pm, long id_oferta) {
+		Query q = pm.newQuery(SQL, "SELECT c.nombre, c.cedula, COUNT(*) as utilizado, SUM(r.periodos) as noches FROM cliente c INNER JOIN reserva r ON c.cedula = r.cliente WHERE r.oferta = ? GROUP BY c.nombre, c.cedula HAVING COUNT(*) >= 3 OR SUM(r.periodos) >= 15");
+		List<Object[]> results = (List<Object[]>) q.execute(id_oferta);
+		StringBuilder rta = new StringBuilder();
+		rta.append(" |Nombre|Cédula|# Reservas|# Noches|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
+	
+	public String ofertasBajaDemanda(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT ofe.id_oferta, ofe.tipo FROM ofertaalojamiento ofe WHERE NOT EXISTS ( SELECT 1 FROM reserva r WHERE r.oferta = ofe.id_oferta AND r.inicio >= (SYSDATE - INTERVAL '1' MONTH))");
+		List<Object[]> results = (List<Object[]>) q.execute();
+		StringBuilder rta = new StringBuilder();
+		rta.append(" |ID Oferta|Tipo|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
 }

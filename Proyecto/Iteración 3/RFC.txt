@@ -66,3 +66,10 @@ GROUP BY c.nombre, c.cedula
 HAVING COUNT(*) >= 3 OR SUM(r.periodos) >= 15;
 
 -- RFC9
+SELECT ofe.id_oferta, ofe.tipo
+FROM ofertaalojamiento ofe
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM reserva r
+  WHERE r.oferta = ofe.id_oferta
+    AND r.inicio >= (SYSDATE - INTERVAL '1' MONTH));

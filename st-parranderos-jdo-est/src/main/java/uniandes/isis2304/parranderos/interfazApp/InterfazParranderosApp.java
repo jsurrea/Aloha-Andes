@@ -450,6 +450,22 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
     }
     
+    public void crearReservaColectiva() {
+    	//TODO
+    }
+    
+    public void borrarReservaColectiva() {
+    	//TODO
+    }
+    
+    public void deshabilitarOferta() {
+    	//TODO
+    }
+    
+    public void habilitarOferta() {
+    	//TODO
+    }
+    
 	/* ****************************************************************
 	 * 			Requerimientos de consulta
 	 *****************************************************************/
@@ -553,6 +569,47 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		{
     			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
     		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void analizarOperacion() {
+    	//TODO
+    }
+    
+    public void clientesFrecuentes() {
+    	try
+    	{
+    		String input = JOptionPane.showInputDialog (this, "Ingrese el id de la oferta", "Clientes Frecuentes", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			long id_oferta = Long.valueOf (input);
+        		String rpta = parranderos.clientesFrecuentes(id_oferta);
+        		panelDatos.actualizarInterfaz(rpta);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void ofertasBajaDemanda() {
+    	try
+    	{
+    		String rpta = parranderos.ofertasBajaDemanda();
+    		panelDatos.actualizarInterfaz(rpta);
     	}
     	catch (Exception e) 
     	{
