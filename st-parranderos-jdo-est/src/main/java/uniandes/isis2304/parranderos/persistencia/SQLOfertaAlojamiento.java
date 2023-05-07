@@ -1,6 +1,8 @@
 package uniandes.isis2304.parranderos.persistencia;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
@@ -28,5 +30,59 @@ public class SQLOfertaAlojamiento {
         Query q = pm.newQuery(SQL, "DELETE FROM OfertaAlojamiento WHERE id_oferta = ?");
         q.setParameters(id_oferta);
         return (long) q.executeUnique();
+	}
+	
+	public String ofertasPopulares(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT * FROM ( SELECT OA.id_oferta, COUNT(R.id_reserva) AS RESERVAS FROM OFERTAALOJAMIENTO OA LEFT JOIN RESERVA R ON OA.id_oferta = R.oferta GROUP BY OA.id_oferta ORDER BY RESERVAS DESC) WHERE ROWNUM <= 20");
+		List<Object[]> results = (List<Object[]>) q.execute();
+		StringBuilder rta = new StringBuilder();
+		rta.append(" |Oferta|# Reservas|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
+	
+	public String indiceOcupacion(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT OA.id_oferta, NULLIF(SQ.reservas, 0) / OA.capacidad AS INDICE FROM OFERTAALOJAMIENTO OA LEFT JOIN (SELECT R.oferta, COUNT(R.id_reserva) AS RESERVAS FROM RESERVA R GROUP BY R.oferta) SQ ON OA.id_oferta = SQ.oferta");
+		List<Object[]> results = (List<Object[]>) q.execute();
+		StringBuilder rta = new StringBuilder();
+		rta.append(" |Oferta|Índice|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
+	
+	public String alojamientosDisponibles(PersistenceManager pm, String[] servicios) {
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT DISTINCT OA.id_oferta FROM OFERTAALOJAMIENTO OA LEFT JOIN SERVICIO S ON OA.id_oferta = S.oferta WHERE OA.retiro IS NULL");
+		if(servicios.length > 0 && !servicios[0].equals("")) {
+			query.append(" AND ( ");
+			query.append(" S.TIPO = '");
+			query.append(servicios[0].toUpperCase().trim());
+			query.append("' ");
+			for(int i = 1; i < servicios.length; i++) {
+				query.append(" OR S.tipo = '");
+				query.append(servicios[i]);
+				query.append("' ");
+			}
+			query.append(" ) ");
+		}
+		Query q = pm.newQuery(SQL, query.toString());
+		List<Object> results = (List<Object>) q.execute();
+		StringBuilder rta = new StringBuilder();
+		rta.append(" |ID Oferta|\n");
+		for (Object row : results) {
+		    rta.append(" | " + row);
+		    rta.append(" |\n");
+		}
+		return rta.toString();
 	}
 }

@@ -1,5 +1,5 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
+x * Universidad	de	los	Andes	(Bogotá	- Colombia)
  * Departamento	de	Ingeniería	de	Sistemas	y	Computación
  * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
  * 		
@@ -68,7 +68,6 @@ public class PersistenciaParranderos
 	
 	/**
 	 * Instancia de AlohAndes necesaria para esta etapa del negocio
-	 * TODO -> Cambiar cuando se añadan más universidades, o eliminar
 	 */
 	public final static String UNIVERSIDAD = "Universidad de los Andes";
 
@@ -404,6 +403,168 @@ public class PersistenciaParranderos
 			//       	e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String ingresosRecibidos() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOperador.ingresosRecibidos(pm);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String ofertasPopulares() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.ofertasPopulares(pm);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String indiceOcupacion() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.indiceOcupacion(pm);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String alojamientosDisponibles(String[] servicios) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.alojamientosDisponibles(pm, servicios);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}	
+	
+	public String usoTipoUsuario() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlCliente.usoTipoUsuario(pm);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String usoUsuario(long cedula) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlCliente.usoUsuario(pm, cedula);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
 		}
 		finally
 		{

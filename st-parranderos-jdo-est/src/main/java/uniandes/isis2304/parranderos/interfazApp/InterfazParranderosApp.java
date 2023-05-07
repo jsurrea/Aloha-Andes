@@ -458,7 +458,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     {
     	try
     	{
-    		// TODO
+    		String rpta = parranderos.ingresosRecibidos();
+    		panelDatos.actualizarInterfaz(rpta);
     	}
     	catch (Exception e) 
     	{
@@ -472,7 +473,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     {
     	try
     	{
-    		// TODO
+    		String rpta = parranderos.ofertasPopulares();
+    		panelDatos.actualizarInterfaz(rpta);
     	}
     	catch (Exception e) 
     	{
@@ -486,7 +488,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     {
     	try
     	{
-    		// TODO
+    		String rpta = parranderos.indiceOcupacion();
+    		panelDatos.actualizarInterfaz(rpta);
     	}
     	catch (Exception e) 
     	{
@@ -500,7 +503,56 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     {
     	try
     	{
-    		// TODO
+    		String input = JOptionPane.showInputDialog (this, "Ingrese servicios separados por ';'", "Alojamientos Disponibles", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			String[] servicios = input.split(";");
+        		String rpta = parranderos.alojamientosDisponibles(servicios);
+        		panelDatos.actualizarInterfaz(rpta);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void usoTipoUsuario( )
+    {
+    	try
+    	{
+    		String rpta = parranderos.usoTipoUsuario();
+    		panelDatos.actualizarInterfaz(rpta);
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void usoUsuario( )
+    {
+    	try
+    	{
+    		String input = JOptionPane.showInputDialog (this, "Ingrese la cédula", "Uso usuario específico", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			long cedula = Long.valueOf (input);
+        		String rpta = parranderos.usoUsuario(cedula);
+        		panelDatos.actualizarInterfaz(rpta);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
     	}
     	catch (Exception e) 
     	{

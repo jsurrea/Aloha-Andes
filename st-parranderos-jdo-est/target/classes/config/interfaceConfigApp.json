@@ -52,6 +52,14 @@
 				{
 					"label": "RFC4 - Alojamientos disponibles",
 					"event": "alojamientosDisponibles"
+				},
+				{
+					"label": "RFC5 - Uso para un tipo de usuario",
+					"event": "usoTipoUsuario"
+				},
+				{
+					"label": "RFC6 - Uso para un usuario específico",
+					"event": "usoUsuario"
 				}
 			]
 		},	

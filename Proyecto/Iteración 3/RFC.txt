@@ -1,0 +1,68 @@
+-- RFC1
+SELECT OP.nombre, SUM(SQ.suma) AS INGRESOS
+FROM OPERADOR OP
+LEFT JOIN OFERTAALOJAMIENTO OA
+ON OP.id_convenio = OA.operador
+LEFT JOIN (
+    SELECT R.oferta, SUM(R.costo) AS SUMA FROM RESERVA R
+    WHERE R.inicio BETWEEN TRUNC(SYSDATE, 'YEAR') AND ADD_MONTHS(TRUNC(SYSDATE, 'YEAR'), 12)
+    GROUP BY R.oferta
+) SQ ON OA.id_oferta = SQ.oferta
+GROUP BY OP.nombre;
+
+-- RFC2
+SELECT * FROM (
+    SELECT OA.id_oferta, COUNT(R.id_reserva) AS RESERVAS FROM OFERTAALOJAMIENTO OA
+    LEFT JOIN RESERVA R ON OA.id_oferta = R.oferta
+    GROUP BY OA.id_oferta
+    ORDER BY RESERVAS DESC
+) WHERE ROWNUM <= 20;
+
+-- RFC3
+SELECT OA.id_oferta, NULLIF(SQ.reservas, 0) / OA.capacidad AS INDICE
+FROM OFERTAALOJAMIENTO OA
+LEFT JOIN (
+    SELECT R.oferta, COUNT(R.id_reserva) AS RESERVAS
+    FROM RESERVA R
+    GROUP BY R.oferta
+) SQ ON OA.id_oferta = SQ.oferta;
+
+-- RFC4
+SELECT DISTINCT id_oferta FROM OFERTAALOJAMIENTO OA
+LEFT JOIN SERVICIO S
+ON OA.id_oferta = S.oferta
+WHERE retiro IS NULL
+AND (
+    S.TIPO = 'RECEPCION'
+    OR S.TIPO = 'PISCINA'
+    OR S.TIPO = 'WIFI'
+);
+
+-- RFC5
+SELECT CL.tipo, COUNT(R.id_reserva) AS Reservas, SUM(costo) AS Ingresos, SUM(R.periodos) AS Periodos
+FROM CLIENTE CL
+LEFT JOIN RESERVA R 
+ON R.cliente = CL.cedula
+GROUP BY CL.tipo;
+
+-- RFC6
+SELECT OP.nombre, OP.tipo_operador, OA.tipo, OA.ubicacion, OA.periodicidad, R.periodos, R.costo, R.inicio
+FROM RESERVA R
+LEFT JOIN OFERTAALOJAMIENTO OA
+ON R.oferta = OA.id_oferta
+LEFT JOIN OPERADOR OP
+ON OA.operador = OP.id_convenio
+WHERE R.cliente = 1001
+ORDER BY R.creacion DESC;
+
+-- RFC7
+
+-- RFC8
+SELECT c.nombre, c.cedula, COUNT(*) as utilizado, SUM(r.periodos) as noches
+FROM cliente c
+INNER JOIN reserva r ON c.cedula = r.cliente
+WHERE r.oferta = 1
+GROUP BY c.nombre, c.cedula
+HAVING COUNT(*) >= 3 OR SUM(r.periodos) >= 15;
+
+-- RFC9

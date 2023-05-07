@@ -6,7 +6,8 @@ public class Servicio {
 	private String descripcion;
 	private int costo;
 	private String tipo;
-	// TODO oferta
+	private long oferta;
+	
 	public int getId_servicio() {
 		return id_servicio;
 	}
@@ -37,18 +38,24 @@ public class Servicio {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	public long getOferta() {
+		return oferta;
+	}
+	public void setOferta(long oferta) {
+		this.oferta = oferta;
+	}
 	
-	public Servicio(int id_servicio, String nombre, String descripcion, int costo, String tipo) {
+	public Servicio(int id_servicio, String nombre, String descripcion, int costo, String tipo, long oferta) {
 		this.setId_servicio(id_servicio);
 		this.setNombre(nombre);
 		this.setDescripcion(descripcion);
 		this.setCosto(costo);
 		this.setTipo(tipo);
+		this.setOferta(oferta);
 	}
 
 	@Override
 	public String toString() {
-		return "AlohAndes ["+"id_servicio="+id_servicio+"nombre="+nombre+"descripcion="+descripcion+"costo="+costo+"tipo="+tipo+"]";
+		return "AlohAndes ["+"id_servicio="+id_servicio+"nombre="+nombre+"descripcion="+descripcion+"costo="+costo+"tipo="+tipo+"oferta="+oferta+"]";
 	}
-
 }

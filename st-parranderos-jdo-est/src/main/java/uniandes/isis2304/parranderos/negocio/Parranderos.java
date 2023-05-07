@@ -100,4 +100,50 @@ public class Parranderos
         log.info ("Eliminando OfertaAlojamiento por id: " + resp + " tuplas eliminadas");
         return resp;
 	}
+	
+	/* ****************************************************************
+	 * 			Requerimientos Consulta
+	 *****************************************************************/
+	
+	public String ingresosRecibidos() {
+		log.info("Ejecutando ingresos recibidos");
+		String resp = pp.ingresosRecibidos();
+		log.info("Terminó ingresos recibidos");
+		return resp;
+	}
+	
+	public String ofertasPopulares() {
+		log.info("Ejecutando ofertasPopulares");
+		String resp = pp.ofertasPopulares();
+		log.info("Terminó ofertasPopulares");
+		return resp;
+	}
+	
+	public String indiceOcupacion() {
+		log.info("Ejecutando indiceOcupacion");
+		String resp = pp.indiceOcupacion();
+		log.info("Terminó indiceOcupacion");
+		return resp;
+	}
+	
+	public String alojamientosDisponibles(String[] servicios) {
+		log.info("Ejecutando alojamientosDisponibles");
+		String resp = pp.alojamientosDisponibles(servicios);
+		log.info("Terminó alojamientosDisponibles");
+		return resp;
+	}
+	
+	public String usoTipoUsuario() {
+		log.info("Ejecutando usoTipoUsuario");
+		String resp = pp.usoTipoUsuario();
+		log.info("Terminó usoTipoUsuario");
+		return resp;
+	}
+	
+	public String usoUsuario(long cedula) {
+		log.info("Ejecutando usoUsuario");
+		String resp = pp.usoUsuario(cedula);
+		log.info("Terminó usoUsuario");
+		return resp;
+	}
 }
