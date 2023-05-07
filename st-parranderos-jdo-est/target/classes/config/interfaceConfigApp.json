@@ -1,0 +1,70 @@
+{
+	"title": "Aplicación transaccional de AlohAndes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Requerimientos Funcionales",
+		  "options":
+			[
+				{
+					"label": "RF1 - Crear Operador",
+					"event": "crearOperador"
+				},
+				{
+					"label": "RF2 - Crear Oferta",
+					"event": "crearOferta"
+				},
+				{
+					"label": "RF3 - Crear Cliente",
+					"event": "crearCliente"
+				},
+				{
+					"label": "RF4 - Crear Reserva",
+					"event": "crearReserva"
+				},
+				{
+					"label": "RF5 - Borrar Reserva",
+					"event": "borrarReserva"
+				},
+				{
+					"label": "RF6 - Borrar Oferta",
+					"event": "borrarOfertaAlojamiento"
+				}
+			]
+		},
+		{ "menuTitle": "Requerimientos de Consulta",
+		  "options":
+			[
+				{
+					"label": "RFC1 - Ingresos recibidos",
+					"event": "ingresosRecibidos"
+				},
+				{
+					"label": "RFC2 - Ofertas más populares",
+					"event": "ofertasPopulares"
+				},
+				{
+					"label": "RFC3 - Índice de ocupación",
+					"event": "indiceOcupacion"
+				},
+				{
+					"label": "RFC4 - Alojamientos disponibles",
+					"event": "alojamientosDisponibles"
+				}
+			]
+		},	
+		{ "menuTitle": "Acerca de ...",
+		  "options":
+			[
+				{
+					"label": "Acerca de ...",
+					"event": "acercaDe"
+				}
+			]
+		}		
+		
+	]
+}
+	
