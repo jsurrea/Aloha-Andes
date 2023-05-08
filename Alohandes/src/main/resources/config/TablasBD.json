@@ -10,6 +10,7 @@
 		"OfertaAlojamiento",
 		"Reserva",
 		"Servicio",
-		"ServicioAdquirido"
+		"ServicioAdquirido",
+		"ReservaColectiva"
 	]
 }

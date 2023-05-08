@@ -1,32 +1,55 @@
-18:37:30,008 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
-18:37:30,171 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
-18:37:37,964 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
-18:37:37,965 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
-18:37:37,973 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
-18:38:34,265 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
-18:38:34,373 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
-18:38:41,559 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
-18:38:41,560 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
-18:38:41,570 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
-18:45:52,398 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
-18:45:52,616 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
-18:45:59,755 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
-18:45:59,756 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
-18:45:59,767 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
-18:46:04,655 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
-18:46:04,806 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
-18:46:12,349 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión realizada correstamente
-18:46:12,349 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Cerrando la conexión
-18:46:12,361 (main) INFO  [uniandes.isis2304.alohandes.test.ConexionTest] - Conexión cerrada
-18:46:16,449 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
-18:46:16,451 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
-18:46:16,654 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - NO se encontró un archivo de configuración válido
-18:47:18,029 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
-18:47:18,036 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
-18:47:18,086 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
-18:47:33,744 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ingresos recibidos
-18:47:39,045 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ingresos recibidos
-18:47:43,418 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando clientesFrecuentes
-18:47:43,445 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó clientesFrecuentes
-18:47:57,007 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando indiceOcupacion
-18:47:57,174 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó indiceOcupacion
+18:52:08,233 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:52:08,235 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:52:08,289 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:55:43,640 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ingresos recibidos
+18:55:49,009 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ingresos recibidos
+18:57:32,275 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ofertasPopulares
+18:57:32,345 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ofertasPopulares
+18:57:39,604 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando indiceOcupacion
+18:57:39,647 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó indiceOcupacion
+18:58:01,546 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando clientesFrecuentes
+18:58:01,607 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó clientesFrecuentes
+18:58:19,256 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ofertasBajaDemanda
+18:58:19,289 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ofertasBajaDemanda
+20:10:43,713 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:10:43,714 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:10:43,956 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:11:44,562 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionando ReservaColectiva
+20:11:49,838 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.math.BigDecimal cannot be cast to class java.lang.Integer (java.math.BigDecimal and java.lang.Integer are in module java.base of loader 'bootstrap')
+
+20:11:49,856 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionado ReservaColectiva
+20:16:01,677 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:16:01,679 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:16:01,785 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:16:28,875 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionando ReservaColectiva
+20:16:34,401 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.math.BigDecimal cannot be cast to class java.lang.Long (java.math.BigDecimal and java.lang.Long are in module java.base of loader 'bootstrap')
+
+20:16:34,440 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionado ReservaColectiva
+20:18:43,642 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:18:43,644 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:18:43,717 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:19:08,994 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionando ReservaColectiva
+20:19:14,409 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO Reserva(id_reserva, creacion, inicio, periodos, costo, cliente, oferta) values (?,?,?,?,?,?,?)".
+ORA-00001: restricción única (ISIS2304D33202310.SYS_C001027764) violada
+
+20:19:14,427 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionado ReservaColectiva
+20:20:22,383 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:20:22,385 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:20:22,429 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:21:12,069 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionando ReservaColectiva
+20:21:17,466 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO Reserva(id_reserva, creacion, inicio, periodos, costo, cliente, oferta) values (?,?,?,?,?,?,?)".
+ORA-00001: restricción única (ISIS2304D33202310.SYS_C001027764) violada
+
+20:21:17,484 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionado ReservaColectiva
+20:22:32,914 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionando ReservaColectiva
+20:22:33,412 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Adicionado ReservaColectiva
+20:23:21,195 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:23:21,197 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:23:21,253 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:54:16,102 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:54:16,104 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:54:16,199 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:55:23,548 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando deshabilitarOferta
+20:55:29,810 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando deshabilitarOferta
+20:55:43,922 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando habilitarOferta
+20:55:43,967 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando habilitarOferta

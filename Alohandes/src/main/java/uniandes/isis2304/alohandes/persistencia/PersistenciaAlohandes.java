@@ -85,6 +85,7 @@ public class PersistenciaAlohandes
 	private SQLReserva sqlReserva;
 	private SQLServicio sqlServicio;
 	private SQLServicioAdquirido sqlServicioAdquirido;
+	private SQLReservaColectiva sqlReservaColectiva;
 	
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
@@ -108,6 +109,7 @@ public class PersistenciaAlohandes
 		tablas.add("Reserva");
 		tablas.add("Servicio");
 		tablas.add("ServicioAdquirido");
+		tablas.add("ReservaColectiva");
 
 }
 
@@ -191,6 +193,7 @@ public class PersistenciaAlohandes
 		sqlServicio = new SQLServicio(this);
 		sqlServicioAdquirido = new SQLServicioAdquirido(this);
 		sqlUtil = new SQLUtil(this);
+		sqlReservaColectiva = new SQLReservaColectiva(this);
 	}
 	
 	/**
@@ -205,11 +208,6 @@ public class PersistenciaAlohandes
         return resp;
     }
 	
-	/**
-	 * Extrae el mensaje de la exception JDODataStoreException embebido en la Exception e, que da el detalle específico del problema encontrado
-	 * @param e - La excepción que ocurrio
-	 * @return El mensaje de la excepción JDO
-	 */
 	private String darDetalleException(Exception e) 
 	{
 		String resp = "";
@@ -397,6 +395,151 @@ public class PersistenciaAlohandes
 			pm.close();
 		}
 	}
+	
+	public Reserva[] crearReservaColectiva(String tipo, int cantidad) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			if (!sqlReserva.existeCapacidad(pm, tipo, cantidad)) {
+				return null;
+			}
+			long[] ofertas = sqlReserva.ofertasDisponibles(pm, tipo);
+			Reserva[] rta = new Reserva[ofertas.length];
+			for(int i=0; i<ofertas.length; i++) {
+				long oferta = ofertas[i];
+				long id_reserva = nextval ();
+				Timestamp now = new Timestamp(System.currentTimeMillis());
+				sqlReserva.crearReserva(pm, id_reserva, now, now, 1, 50, 1001, oferta);
+				rta[i] = new Reserva (id_reserva, now, now, 1, 50, 1001, oferta);
+			}
+			long[] id_reservas = new long[rta.length];
+			for(int i = 0; i < rta.length; i++) {
+				id_reservas[i] = rta[i].getId_reserva();
+			}
+			sqlReservaColectiva.crearReservaColectiva(pm, nextval (), id_reservas);
+			tx.commit();
+			log.trace ("Inserción de Reservas: " + ofertas.length + " tuplas insertadas");
+
+			return rta;
+		}
+		catch (Exception e)
+		{
+//      	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public long borrarReservaColectiva (long id_reserva_colectiva) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long[] reservas = sqlReservaColectiva.reservasAsociadas(pm, id_reserva_colectiva);
+			for(int i=0; i<reservas.length; i++) {
+				long id_reserva = reservas[i];
+				sqlReserva.borrarReserva (pm, id_reserva);
+			}
+			tx.commit();
+			return reservas.length;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public Reserva[] deshabilitarOferta(long id_oferta) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			int cantidad = sqlOfertaAlojamiento.cantidadReservas(pm, id_oferta);
+			if (!sqlReserva.existeCapacidad(pm, null, cantidad)) {
+				return null;
+			}
+			sqlOfertaAlojamiento.deshabilitarOferta(pm, id_oferta);
+			long[] ofertas = sqlReserva.ofertasDisponibles(pm, null);
+			Reserva[] rta = new Reserva[ofertas.length];
+			for(int i=0; i<ofertas.length; i++) {
+				long oferta = ofertas[i];
+				long id_reserva = nextval ();
+				Timestamp now = new Timestamp(System.currentTimeMillis());
+				sqlReserva.crearReserva(pm, id_reserva, now, now, 1, 50, 1001, oferta);
+				rta[i] = new Reserva (id_reserva, now, now, 1, 50, 1001, oferta);
+			}
+			tx.commit();
+			log.trace ("Inserción de Reservas: " + ofertas.length + " tuplas insertadas");
+
+			return rta;
+		}
+		catch (Exception e)
+		{
+//      	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public long habilitarOferta (long id_oferta) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long rows = sqlOfertaAlojamiento.habilitarOferta(pm, id_oferta);
+			tx.commit();
+			return rows;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	/* ****************************************************************
+	 * 			Métodos de los REQUERIMIENTOS CONSULTA
+	 *****************************************************************/
 	
 	public String ingresosRecibidos() {
 		PersistenceManager pm = pmf.getPersistenceManager();

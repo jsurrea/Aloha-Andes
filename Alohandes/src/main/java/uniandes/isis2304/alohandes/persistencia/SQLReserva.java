@@ -1,6 +1,7 @@
 package uniandes.isis2304.alohandes.persistencia;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
@@ -28,5 +29,42 @@ public class SQLReserva {
         Query q = pm.newQuery(SQL, "DELETE FROM Reserva WHERE id_reserva = ?");
         q.setParameters(id_reserva);
         return (long) q.executeUnique();
+	}
+	
+	public boolean existeCapacidad(PersistenceManager pm, String tipo, int capacidad) {
+		String query = "SELECT R.oferta, OA.capacidad FROM RESERVA R LEFT JOIN OFERTAALOJAMIENTO OA ON R.oferta = OA.id_oferta";
+		if(tipo != null) query += " WHERE OA.tipo = ?";
+        Query q = pm.newQuery(SQL, query);
+        List<Object[]> results;
+        if(tipo != null) {
+        	results = (List<Object[]>) q.execute(tipo);
+        }
+        else {
+        	results = (List<Object[]>) q.execute();
+        }
+        long capacidadTotal = 0;
+		for (Object[] row : results) {
+			capacidadTotal += ((java.math.BigDecimal) row[1]).longValue();   
+		}
+        return capacidadTotal >= capacidad;
+	}
+	
+	public long[] ofertasDisponibles(PersistenceManager pm, String tipo) {
+		String query = "SELECT R.oferta, OA.capacidad FROM RESERVA R LEFT JOIN OFERTAALOJAMIENTO OA ON R.oferta = OA.id_oferta";
+		if(tipo != null) query += " WHERE OA.tipo = ?";
+        Query q = pm.newQuery(SQL, query);
+        List<Object[]> results;
+        if(tipo != null) {
+        	results = (List<Object[]>) q.execute(tipo);
+        }
+        else {
+        	results = (List<Object[]>) q.execute();
+        }
+        long[] ofertas = new long[results.size()];
+        for(int i=0; i<results.size(); i++) {
+        	Object[] row = (Object[]) results.get(i);
+        	ofertas[i] = ((java.math.BigDecimal) row[0]).longValue();
+        }
+        return ofertas;
 	}
 }

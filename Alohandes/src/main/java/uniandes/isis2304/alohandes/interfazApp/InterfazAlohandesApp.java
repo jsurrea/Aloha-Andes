@@ -430,19 +430,124 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     }
     
     public void crearReservaColectiva() {
-    	//TODO
+    	try
+    	{
+    		String input = JOptionPane.showInputDialog (this, "Ingrese separados por ';' los valores TIPO y CANTIDAD: ", "Crear Reserva Colectiva", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			String[] inputArray = input.split(";");
+    			String tipo = inputArray[0];
+    			int cantidad = Integer.parseInt(inputArray[1]);
+  
+    			Reserva[] tb = negocioAlohandes.crearReservaColectiva(tipo, cantidad);
+        		if (tb == null)
+        		{
+        			throw new Exception ("No se pudo crear un Reserva Colectiva con datos: " + input);
+        		}
+        		String resultado = "En crear Reserva Colectiva\n\n";
+        		resultado += "Reservas adicionadas exitosamente: ";
+        		for(Reserva r : tb) {
+        			resultado += "\n" + r;
+        		}
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
     }
     
     public void borrarReservaColectiva() {
-    	//TODO
+    	try
+    	{
+    		String input = JOptionPane.showInputDialog (this, "Ingrese id de reserva colectiva: ", "Borrar Reserva Colectiva", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			long id_reserva_colectiva = Long.parseLong(input);
+    			long eliminados = negocioAlohandes.borrarReservaColectiva(id_reserva_colectiva);
+        		String resultado = "En borar Reserva Colectiva\n\n";
+        		resultado += "Reservas eliminadas exitosamente: " + eliminados;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
     }
     
     public void deshabilitarOferta() {
-    	//TODO
+    	try
+    	{
+    		String input = JOptionPane.showInputDialog (this, "Ingrese id de la oferta: ", "Deshabilitar Oferta Alojamiento", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			long id_oferta = Long.parseLong(input);
+    			Reserva[] tb = negocioAlohandes.deshabilitarOferta(id_oferta);
+        		if (tb == null)
+        		{
+        			throw new Exception ("No se pudo deshabilitar oferta con datos: " + input);
+        		}
+        		String resultado = "En deshabilitar oferta\n\n";
+        		resultado += "Reservas reasignadas exitosamente: ";
+        		for(Reserva r : tb) {
+        			resultado += "\n" + r;
+        		}
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
     }
     
     public void habilitarOferta() {
-    	//TODO
+    	try
+    	{
+    		String input = JOptionPane.showInputDialog (this, "Ingrese id de la oferta: ", "Habilitar Oferta Alojamiento", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			long id_oferta = Long.parseLong(input);
+    			long rows = negocioAlohandes.habilitarOferta(id_oferta);
+        		String resultado = "En habilitar Oferta\n\n";
+        		resultado += "Ofertas habilitadas exitosamente: " + rows;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
     }
     
 	/* ****************************************************************

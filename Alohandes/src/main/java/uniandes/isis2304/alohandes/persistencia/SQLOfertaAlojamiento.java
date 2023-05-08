@@ -112,4 +112,34 @@ public class SQLOfertaAlojamiento {
 		}
 		return rta.toString();
 	}
+	
+	public long deshabilitarOferta (PersistenceManager pm, long id_oferta) {
+        Query q = pm.newQuery(SQL, "UPDATE OfertaAlojamiento SET retiro = ? WHERE id_oferta = ?");
+        q.setParameters(new Timestamp(System.currentTimeMillis()), id_oferta);
+        // TODO
+        return (long) q.executeUnique();
+	}
+	
+	public int cantidadReservas(PersistenceManager pm, long id_oferta) {
+		String query = "SELECT id_reserva, cliente FROM RESERVA WHERE OFERTA = ?";
+        Query q = pm.newQuery(SQL, query);
+        List<Object[]> results = (List<Object[]>) q.execute(id_oferta);
+        long[] reserva = new long[results.size()];
+        long[] cliente = new long[results.size()];
+        for(int i=0; i<results.size(); i++) {
+        	Object[] row = (Object[]) results.get(i);
+        	reserva[i] = ((java.math.BigDecimal) row[0]).longValue();
+        	cliente[i] = ((java.math.BigDecimal) row[1]).longValue();
+        }
+        return reserva.length;
+	}
+	
+	/**
+	 * @return El número de tuplas insertadas
+	 */
+	public long habilitarOferta (PersistenceManager pm, long id_oferta) {
+        Query q = pm.newQuery(SQL, "UPDATE OfertaAlojamiento SET retiro = NULL WHERE id_oferta = ?");
+        q.setParameters(id_oferta);
+        return (long) q.executeUnique();
+	}
 }

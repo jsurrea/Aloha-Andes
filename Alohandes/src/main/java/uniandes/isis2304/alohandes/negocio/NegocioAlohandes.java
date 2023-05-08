@@ -100,6 +100,34 @@ public class NegocioAlohandes
         return resp;
 	}
 	
+	public Reserva[] crearReservaColectiva (String tipo, int cantidad) {
+        log.info ("Adicionando ReservaColectiva");
+        Reserva[] reservas = pp.crearReservaColectiva(tipo, cantidad);		
+        log.info ("Adicionado ReservaColectiva");
+        return reservas;
+	}
+	
+	public long borrarReservaColectiva (long id_reserva_colectiva) {
+        log.info ("Borrando ReservaColectiva");
+        long reservas = pp.borrarReservaColectiva(id_reserva_colectiva);		
+        log.info ("Borrando ReservaColectiva");
+        return reservas;
+	}
+	
+	public Reserva[] deshabilitarOferta (long id_oferta) {
+		log.info ("Ejecutando deshabilitarOferta");
+		Reserva[] reservas = pp.deshabilitarOferta(id_oferta);		
+		log.info ("Ejecutando deshabilitarOferta");
+		return reservas;
+	}
+	
+	public long habilitarOferta (long id_oferta) {
+        log.info ("Ejecutando habilitarOferta");
+        long rows = pp.habilitarOferta(id_oferta);		
+        log.info ("Ejecutando habilitarOferta");
+        return rows;
+	}
+	
 	/* ****************************************************************
 	 * 			Requerimientos Consulta
 	 *****************************************************************/
