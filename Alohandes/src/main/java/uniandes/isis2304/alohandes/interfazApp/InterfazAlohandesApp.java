@@ -663,7 +663,25 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     }
     
     public void analizarOperacion() {
-    	//TODO
+    	try
+    	{
+    		String tipo = JOptionPane.showInputDialog (this, "Ingrese el tipo de oferta", "Análisis de Operación", JOptionPane.QUESTION_MESSAGE);
+    		if (tipo != null)
+    		{
+        		String rpta = negocioAlohandes.analizarOperacion(tipo);
+        		panelDatos.actualizarInterfaz(rpta);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
     }
     
     public void clientesFrecuentes() {

@@ -703,8 +703,32 @@ public class PersistenciaAlohandes
 		}
 	}
 	
-	
-	
+	public String analizarOperacion(String tipo) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.analizarOperacion(pm, tipo);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 	
 	public String clientesFrecuentes(long id_oferta) {
 		PersistenceManager pm = pmf.getPersistenceManager();

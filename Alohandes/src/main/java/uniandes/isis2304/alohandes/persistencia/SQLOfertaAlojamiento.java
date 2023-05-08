@@ -142,4 +142,19 @@ public class SQLOfertaAlojamiento {
         q.setParameters(id_oferta);
         return (long) q.executeUnique();
 	}
+	
+	public String analizarOperacion(PersistenceManager pm, String tipo) {
+		Query q = pm.newQuery(SQL, "SELECT TO_CHAR(R.inicio, 'DD-MM-YY') AS fecha, COUNT(*) AS Reservas, SUM(R.costo) AS Ingresos, SUM(OA.capacidad) AS Capacidad FROM RESERVA R  LEFT JOIN OFERTAALOJAMIENTO OA ON OA.id_oferta = R.oferta WHERE OA.tipo = ? GROUP BY TO_CHAR(R.inicio, 'DD-MM-YY')");
+		List<Object[]> results = (List<Object[]>) q.execute(tipo);
+		StringBuilder rta = new StringBuilder();
+		rta.append(" Información diaria del tipo de oferta de alojamiento " + tipo + ":\n");
+		rta.append(" |Fecha|Reservas|Ingresos|Capacidad|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
 }

@@ -173,7 +173,13 @@ public class NegocioAlohandes
 		log.info("Terminó usoUsuario");
 		return resp;
 	}
-	
+
+	public String analizarOperacion(String tipo) {
+		log.info("Ejecutando analizarOperacion");
+		String resp = pp.analizarOperacion(tipo);
+		log.info("Terminó analizarOperacion");
+		return resp;
+	}
 	
 	public String clientesFrecuentes(long id_oferta) {
 		log.info("Ejecutando clientesFrecuentes");

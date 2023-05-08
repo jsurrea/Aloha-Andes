@@ -53,3 +53,10 @@ ORA-00001: restricción única (ISIS2304D33202310.SYS_C001027764) violada
 20:55:29,810 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando deshabilitarOferta
 20:55:43,922 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando habilitarOferta
 20:55:43,967 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando habilitarOferta
+21:51:17,521 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:51:17,523 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:51:17,685 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:51:34,439 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ofertasBajaDemanda
+21:51:39,844 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ofertasBajaDemanda
+21:51:48,944 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando analizarOperacion
+21:51:48,978 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó analizarOperacion
