@@ -203,3 +203,18 @@ ORA-00904: "S"."TIPO": identificador no válido
 20:45:27,733 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ingresos recibidos
 20:45:32,353 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ingresos recibidos
 20:45:34,254 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ingresos recibidos
+21:41:29,241 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:41:29,244 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:41:29,286 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:41:55,865 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ofertasPopulares
+21:42:01,603 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ofertasPopulares
+21:42:05,258 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando ingresos recibidos
+21:42:07,591 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ingresos recibidos
+21:42:30,327 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarConsumo1
+21:42:30,370 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT r.cliente, a.id_oferta, a.tipo, COUNT(*) AS total_reservas FROM reserva r inner JOIN ofertaalojamiento a ON r.oferta = a.id_oferta WHERE a.id_oferta = ? and r.inicio BETWEEN TO_DATE(?, 'YYYY-MM-DD') AND TO_DATE(?, 'YYYY-MM-DD') GROUP BY r.cliente, a.id_oferta, a.tipo ORDER BY r.cliente ; select * from reserva".
+ORA-00933: comando SQL no terminado correctamente
+
+21:42:30,387 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarConsumo1
+21:43:43,562 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:43:43,564 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:43:43,597 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD

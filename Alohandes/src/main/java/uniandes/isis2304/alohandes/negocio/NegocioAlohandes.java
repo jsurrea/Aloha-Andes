@@ -195,30 +195,30 @@ public class NegocioAlohandes
 		return resp;
 	}
 	
-	public String consultarConsumo1() {
+	public String consultarConsumo1(Long id_oferta, String date1, String date2) {
 		log.info("Ejecutando consultarConsumo1");
-		String resp = "";//pp.consultarConsumo1();
+		String resp = pp.consultarConsumo1(id_oferta, date1, date2);
 		log.info("Terminó consultarConsumo1");
 		return resp;
 	}
 
-	public String consultarConsumo2() {
+	public String consultarConsumo2(Long id_oferta, String date1, String date2) {
 		log.info("Ejecutando consultarConsumo2");
-		String resp = "";//pp.consultarConsumo2();
+		String resp = pp.consultarConsumo2(id_oferta, date1, date2);
 		log.info("Terminó consultarConsumo2");
 		return resp;
 	}
 	
 	public String consultarFuncionamiento() {
 		log.info("Ejecutando consultarFuncionamiento");
-		String resp = "";//pp.consultarFuncionamiento();
+		String resp = pp.consultarFuncionamiento();
 		log.info("Terminó consultarFuncionamiento");
 		return resp;
 	}
 	
 	public String consultarBuenosClientes() {
 		log.info("Ejecutando consultarBuenosClientes");
-		String resp = "";//pp.consultarBuenosClientes();
+		String resp = pp.consultarBuenosClientes();
 		log.info("Terminó consultarBuenosClientes");
 		return resp;
 	}

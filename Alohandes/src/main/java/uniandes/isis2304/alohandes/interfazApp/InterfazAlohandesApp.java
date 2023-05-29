@@ -724,8 +724,20 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     public void consultarConsumo1() {
     	try
     	{
-    		String rpta = negocioAlohandes.consultarConsumo1();
-    		panelDatos.actualizarInterfaz(rpta);
+    		String input = JOptionPane.showInputDialog (this, "Ingrese separados por ';' los valores id_oferta, fecha1, fecha2 (yyyy-mm-dd): ", "Consumo 1", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			String[] inputArray = input.split(";");
+    			Long id_oferta = Long.parseLong(inputArray[0]);
+    			String date1 = inputArray[1];
+    			String date2 = inputArray[2];
+    			String rpta = negocioAlohandes.consultarConsumo1(id_oferta, date1, date2);
+    			panelDatos.actualizarInterfaz(rpta);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
     	}
     	catch (Exception e) 
     	{
@@ -738,8 +750,20 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     public void consultarConsumo2() {
     	try
     	{
-    		String rpta = negocioAlohandes.consultarConsumo2();
-    		panelDatos.actualizarInterfaz(rpta);
+    		String input = JOptionPane.showInputDialog (this, "Ingrese separados por ';' los valores id_oferta, fecha1, fecha2 (yyyy-mm-dd): ", "Consumo 2", JOptionPane.QUESTION_MESSAGE);
+    		if (input != null)
+    		{
+    			String[] inputArray = input.split(";");
+    			Long id_oferta = Long.parseLong(inputArray[0]);
+    			String date1 = inputArray[1];
+    			String date2 = inputArray[2];
+    			String rpta = negocioAlohandes.consultarConsumo2(id_oferta, date1, date2);
+    			panelDatos.actualizarInterfaz(rpta);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
     	}
     	catch (Exception e) 
     	{

@@ -783,4 +783,112 @@ public class PersistenciaAlohandes
 			pm.close();
 		}
 	}
+	
+	public String consultarConsumo1(Long id_oferta, String date1, String date2) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.consultarConsumo1(pm, id_oferta, date1, date2);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String consultarConsumo2(Long id_oferta, String date1, String date2) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.consultarConsumo2(pm, id_oferta, date1, date2);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String consultarFuncionamiento() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlOfertaAlojamiento.consultarFuncionamiento(pm);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public String consultarBuenosClientes() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			String resp = sqlCliente.consultarBuenosClientes(pm);
+			tx.commit();
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+			//       	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return "No se pudo consultar el requerimiento";
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
  }

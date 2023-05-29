@@ -158,4 +158,46 @@ public class SQLOfertaAlojamiento {
 		}
 		return rta.toString();
 	}
+
+	public String consultarConsumo1(PersistenceManager pm, Long id_oferta, String date1, String date2) {
+		Query q = pm.newQuery(SQL, "SELECT r.cliente, a.id_oferta, a.tipo, COUNT(*) AS total_reservas FROM reserva r inner JOIN ofertaalojamiento a ON r.oferta = a.id_oferta WHERE a.id_oferta = ? and r.inicio BETWEEN TO_DATE(?, 'YYYY-MM-DD') AND TO_DATE(?, 'YYYY-MM-DD') GROUP BY r.cliente, a.id_oferta, a.tipo ORDER BY r.cliente");
+		List<Object[]> results = (List<Object[]>) q.execute(id_oferta, date1, date2);
+		StringBuilder rta = new StringBuilder();
+		rta.append("|Cliente|Oferta|Tipo|Total Reservas|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
+
+	public String consultarConsumo2(PersistenceManager pm, Long id_oferta, String date1, String date2) {
+		Query q = pm.newQuery(SQL, "SELECT c.cedula, c.nombre FROM CLIENTE c left join ( SELECT r.cliente FROM reserva r inner JOIN ofertaalojamiento a ON r.oferta = a.id_oferta WHERE a.id_oferta = ? and r.inicio BETWEEN TO_DATE(?, 'YYYY-MM-DD') AND TO_DATE(?, 'YYYY-MM-DD') GROUP BY r.cliente, a.id_oferta, a.tipo ORDER BY r.cliente ) SQ on c.cedula = SQ.cliente Where SQ.cliente is NULL and rownum <= 500");
+		List<Object[]> results = (List<Object[]>) q.execute(id_oferta, date1, date2);
+		StringBuilder rta = new StringBuilder();
+		rta.append("|Cliente|Oferta|Tipo|Total Reservas|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
+	
+	public String consultarFuncionamiento(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "WITH ocupacion_semanal AS ( SELECT TO_CHAR(reserva.inicio, 'WW') AS semana, reserva.oferta, COUNT(*) AS cantidad_reservas FROM reserva GROUP BY TO_CHAR(reserva.inicio, 'WW'), reserva.oferta ), operadores_solicitados AS ( SELECT TO_CHAR(reserva.inicio, 'WW') AS semana, ofertaalojamiento.operador, COUNT(*) AS cantidad_reservas FROM reserva INNER JOIN ofertaalojamiento ON reserva.oferta = ofertaalojamiento.id_oferta GROUP BY TO_CHAR(reserva.inicio, 'WW'), ofertaalojamiento.operador )SELECT oc.semana, MAX(a.id_oferta) AS oferta_mas_ocupada, MIN(a.id_oferta) AS oferta_menos_ocupada, MAX(op.operador) AS operador_mas_solicitado, MIN(op.operador) AS operador_menos_solicitado FROM ocupacion_semanal oc INNER JOIN ofertaalojamiento a ON oc.oferta = a.id_oferta INNER JOIN operadores_solicitados op ON oc.semana = op.semana AND a.operador = op.operador GROUP BY oc.semana");
+		List<Object[]> results = (List<Object[]>) q.execute();
+		StringBuilder rta = new StringBuilder();
+		rta.append(" |Semana|Oferta más ocupada|Oferta menos ocupada|Operador más solicitado|Operador menos solicitado|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
 }

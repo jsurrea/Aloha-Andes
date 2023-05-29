@@ -49,4 +49,18 @@ public class SQLCliente {
 		}
 		return rta.toString();
 	}
+	
+	public String consultarBuenosClientes(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, " SELECT * FROM (SELECT c.cedula, c.nombre, c.correo, ( SELECT COUNT(*) FROM reserva r WHERE r.cliente = c.cedula AND r.inicio >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1) ) AS reservas_mensuales, ( SELECT COUNT(*) FROM reserva r INNER JOIN ofertaalojamiento a ON r.oferta = a.id_oferta WHERE r.cliente = c.cedula AND a.costo > 150 ) AS reservas_costosas, ( SELECT COUNT(*) FROM reserva r INNER JOIN ofertaalojamiento a ON r.oferta = a.id_oferta WHERE r.cliente = c.cedula AND a.tipo = 'SUITE' ) AS reservas_suites FROM cliente c WHERE ( EXISTS ( SELECT 1 FROM reserva r WHERE r.cliente = c.cedula AND r.inicio >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1) ) OR EXISTS ( SELECT 1 FROM reserva r INNER JOIN ofertaalojamiento a ON r.oferta = a.id_oferta WHERE r.cliente = c.cedula AND a.costo > 150 ) OR EXISTS ( SELECT 1 FROM reserva r INNER JOIN ofertaalojamiento a ON r.oferta = a.id_oferta WHERE r.cliente = c.cedula AND a.tipo = 'SUITE' ) ) ) WHERE ROWNUM <= 500");
+		List<Object[]> results = (List<Object[]>) q.execute();
+		StringBuilder rta = new StringBuilder();
+		rta.append(" |Cedula|Nombre|Correo|Reservas mensuale|Reservas costosas|Reservas suites|\n");
+		for (Object[] row : results) {
+		    for (Object col : row) {
+		        rta.append(" | " + col);
+		    }
+		    rta.append(" |\n");
+		}
+		return rta.toString();
+	}
 }
