@@ -1,0 +1,122 @@
+{
+	"title": "Aplicación transaccional de AlohAndes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Requerimientos Funcionales",
+		  "options":
+			[
+				{
+					"label": "RF1 - Crear Operador",
+					"event": "crearOperador"
+				},
+				{
+					"label": "RF2 - Crear Oferta",
+					"event": "crearOferta"
+				},
+				{
+					"label": "RF3 - Crear Cliente",
+					"event": "crearCliente"
+				},
+				{
+					"label": "RF4 - Crear Reserva",
+					"event": "crearReserva"
+				},
+				{
+					"label": "RF5 - Borrar Reserva",
+					"event": "borrarReserva"
+				},
+				{
+					"label": "RF6 - Borrar Oferta",
+					"event": "borrarOfertaAlojamiento"
+				},
+				{
+					"label": "RF7 - Crear Reserva Colectiva",
+					"event": "crearReservaColectiva"
+				},
+				{
+					"label": "RF8 - Borrar Reserva Colectiva",
+					"event": "borrarReservaColectiva"
+				},
+				{
+					"label": "RF9 - Deshabilitar Oferta",
+					"event": "deshabilitarOferta"
+				},
+				{
+					"label": "RF10 - Habilitar Oferta",
+					"event": "habilitarOferta"
+				}
+			]
+		},
+		{ "menuTitle": "Requerimientos de Consulta",
+		  "options":
+			[
+				{
+					"label": "RFC1 - Ingresos recibidos",
+					"event": "ingresosRecibidos"
+				},
+				{
+					"label": "RFC2 - Ofertas más populares",
+					"event": "ofertasPopulares"
+				},
+				{
+					"label": "RFC3 - Índice de ocupación",
+					"event": "indiceOcupacion"
+				},
+				{
+					"label": "RFC4 - Alojamientos disponibles",
+					"event": "alojamientosDisponibles"
+				},
+				{
+					"label": "RFC5 - Uso para un tipo de usuario",
+					"event": "usoTipoUsuario"
+				},
+				{
+					"label": "RFC6 - Uso para un usuario específico",
+					"event": "usoUsuario"
+				},
+				{
+					"label": "RFC7 - Analizar la operación",
+					"event": "analizarOperacion"
+				},
+				{
+					"label": "RFC8 - Clientes Frecuentes",
+					"event": "clientesFrecuentes"
+				},
+				{
+					"label": "RFC9 - Oferta con baja demanda",
+					"event": "ofertasBajaDemanda"
+				},
+				{
+					"label": "RFC10 - Consultar Consumo 1",
+					"event": "consultarConsumo1"
+				},
+				{
+					"label": "RFC11 - Consultar Consumo 2",
+					"event": "consultarConsumo2"
+				},
+				{
+					"label": "RFC12 - Consultar Funcionamiento",
+					"event": "consultarFuncionamiento"
+				},
+				{
+					"label": "RFC13 - Consultar Buenos Clientes",
+					"event": "consultarBuenosClientes"
+				}
+			]
+		},	
+		{ "menuTitle": "Acerca de ...",
+		  "options":
+			[
+				{
+					"label": "Acerca de ...",
+					"event": "acercaDe"
+				}
+			]
+		}		
+		
+	]
+}
+	

@@ -39,7 +39,7 @@ public class SQLCliente {
 		Query q = pm.newQuery(SQL, "SELECT OP.nombre, OP.tipo_operador, OA.tipo, OA.ubicacion, OA.periodicidad, R.periodos, R.costo, R.inicio FROM RESERVA R LEFT JOIN OFERTAALOJAMIENTO OA ON R.oferta = OA.id_oferta LEFT JOIN OPERADOR OP ON OA.operador = OP.id_convenio WHERE R.cliente = ? ORDER BY R.creacion DESC");
 		List<Object[]> results = (List<Object[]>) q.execute(cedula);
 		StringBuilder rta = new StringBuilder();
-		rta.append(" Información de la última reserva realizada por el cliente con cédula " + cedula + ":\n");
+		rta.append(" Información de las últimas reservas realizadas por el cliente con cédula " + cedula + ":\n");
 		rta.append(" |Operador|Tipo Operador|Tipo Oferta|Ubicación|Periodicidad|#Periodos|Costo|Fecha Inicio|\n");
 		for (Object[] row : results) {
 		    for (Object col : row) {

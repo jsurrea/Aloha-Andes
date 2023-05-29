@@ -194,4 +194,32 @@ public class NegocioAlohandes
 		log.info("Terminó ofertasBajaDemanda");
 		return resp;
 	}
+	
+	public String consultarConsumo1() {
+		log.info("Ejecutando consultarConsumo1");
+		String resp = "";//pp.consultarConsumo1();
+		log.info("Terminó consultarConsumo1");
+		return resp;
+	}
+
+	public String consultarConsumo2() {
+		log.info("Ejecutando consultarConsumo2");
+		String resp = "";//pp.consultarConsumo2();
+		log.info("Terminó consultarConsumo2");
+		return resp;
+	}
+	
+	public String consultarFuncionamiento() {
+		log.info("Ejecutando consultarFuncionamiento");
+		String resp = "";//pp.consultarFuncionamiento();
+		log.info("Terminó consultarFuncionamiento");
+		return resp;
+	}
+	
+	public String consultarBuenosClientes() {
+		log.info("Ejecutando consultarBuenosClientes");
+		String resp = "";//pp.consultarBuenosClientes();
+		log.info("Terminó consultarBuenosClientes");
+		return resp;
+	}
 }

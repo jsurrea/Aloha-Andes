@@ -46,7 +46,7 @@ public class SQLOfertaAlojamiento {
 	}
 	
 	public String indiceOcupacion(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT OA.id_oferta, NULLIF(SQ.reservas, 0) / OA.capacidad AS INDICE FROM OFERTAALOJAMIENTO OA LEFT JOIN (SELECT R.oferta, COUNT(R.id_reserva) AS RESERVAS FROM RESERVA R GROUP BY R.oferta) SQ ON OA.id_oferta = SQ.oferta");
+		Query q = pm.newQuery(SQL, "SELECT * FROM (SELECT OA.id_oferta, SQ.reservas / OA.capacidad AS INDICE FROM OFERTAALOJAMIENTO OA LEFT JOIN (SELECT R.oferta, COUNT(R.id_reserva) AS RESERVAS FROM RESERVA R GROUP BY R.oferta) SQ ON OA.id_oferta = SQ.oferta ORDER BY INDICE DESC) WHERE ROWNUM <= 500 AND INDICE IS NOT NULL");
 		List<Object[]> results = (List<Object[]>) q.execute();
 		StringBuilder rta = new StringBuilder();
 		rta.append(" |Oferta|Índice|\n");
@@ -61,7 +61,7 @@ public class SQLOfertaAlojamiento {
 	
 	public String alojamientosDisponibles(PersistenceManager pm, String[] servicios) {
 		StringBuilder query = new StringBuilder();
-		query.append("SELECT DISTINCT OA.id_oferta FROM OFERTAALOJAMIENTO OA LEFT JOIN SERVICIO S ON OA.id_oferta = S.oferta WHERE OA.retiro IS NULL");
+		query.append("SELECT * FROM (SELECT DISTINCT OA.id_oferta FROM OFERTAALOJAMIENTO OA LEFT JOIN SERVICIO S ON OA.id_oferta = S.oferta WHERE OA.retiro IS NULL ");
 		if(servicios.length > 0 && !servicios[0].equals("")) {
 			query.append(" AND ( ");
 			query.append(" S.TIPO = '");
@@ -74,6 +74,7 @@ public class SQLOfertaAlojamiento {
 			}
 			query.append(" ) ");
 		}
+		query.append(" ) WHERE ROWNUM <= 500");
 		Query q = pm.newQuery(SQL, query.toString());
 		List<Object> results = (List<Object>) q.execute();
 		StringBuilder rta = new StringBuilder();
@@ -100,7 +101,7 @@ public class SQLOfertaAlojamiento {
 	}
 	
 	public String ofertasBajaDemanda(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT ofe.id_oferta, ofe.tipo FROM ofertaalojamiento ofe WHERE NOT EXISTS ( SELECT 1 FROM reserva r WHERE r.oferta = ofe.id_oferta AND r.inicio >= (SYSDATE - INTERVAL '1' MONTH))");
+		Query q = pm.newQuery(SQL, "SELECT * FROM ( SELECT ofe.id_oferta, ofe.tipo FROM ofertaalojamiento ofe LEFT JOIN (SELECT ofe.id_oferta, COUNT(*) AS cantidad FROM ofertaalojamiento ofe INNER JOIN reserva r ON r.oferta = ofe.id_oferta WHERE r.inicio >= (SYSDATE - INTERVAL '1' MONTH) GROUP BY ofe.id_oferta) SQ ON SQ.id_oferta = ofe.id_oferta WHERE SQ.id_oferta IS NULL ) WHERE ROWNUM <= 500");
 		List<Object[]> results = (List<Object[]>) q.execute();
 		StringBuilder rta = new StringBuilder();
 		rta.append(" |ID Oferta|Tipo|\n");
@@ -144,7 +145,7 @@ public class SQLOfertaAlojamiento {
 	}
 	
 	public String analizarOperacion(PersistenceManager pm, String tipo) {
-		Query q = pm.newQuery(SQL, "SELECT TO_CHAR(R.inicio, 'DD-MM-YY') AS fecha, COUNT(*) AS Reservas, SUM(R.costo) AS Ingresos, SUM(OA.capacidad) AS Capacidad FROM RESERVA R  LEFT JOIN OFERTAALOJAMIENTO OA ON OA.id_oferta = R.oferta WHERE OA.tipo = ? GROUP BY TO_CHAR(R.inicio, 'DD-MM-YY')");
+		Query q = pm.newQuery(SQL, "SELECT * FROM(SELECT TO_CHAR(R.inicio, 'DD-MM-YY') AS fecha, COUNT(*) AS Reservas, SUM(R.costo) AS Ingresos, SUM(OA.capacidad) AS Capacidad FROM RESERVA R  LEFT JOIN OFERTAALOJAMIENTO OA ON OA.id_oferta = R.oferta WHERE OA.tipo = ? GROUP BY TO_CHAR(R.inicio, 'DD-MM-YY') ORDER BY fecha DESC) WHERE ROWNUM <= 500");
 		List<Object[]> results = (List<Object[]>) q.execute(tipo);
 		StringBuilder rta = new StringBuilder();
 		rta.append(" Información diaria del tipo de oferta de alojamiento " + tipo + ":\n");
