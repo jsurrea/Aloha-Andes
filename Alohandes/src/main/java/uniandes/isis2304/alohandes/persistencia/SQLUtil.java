@@ -45,6 +45,6 @@ class SQLUtil
         Query q = pm.newQuery(SQL, "SELECT index_sequence.nextval FROM DUAL");
         q.setResultClass(Long.class);
         long resp = (long) q.executeUnique();
-        return resp;
+        return resp + 1000000L;
 	}
 }

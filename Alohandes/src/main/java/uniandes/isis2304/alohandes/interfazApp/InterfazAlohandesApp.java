@@ -720,6 +720,62 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+    
+    public void consultarConsumo1() {
+    	try
+    	{
+    		String rpta = negocioAlohandes.consultarConsumo1();
+    		panelDatos.actualizarInterfaz(rpta);
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
+    public void consultarConsumo2() {
+    	try
+    	{
+    		String rpta = negocioAlohandes.consultarConsumo2();
+    		panelDatos.actualizarInterfaz(rpta);
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void consultarFuncionamiento() {
+    	try
+    	{
+    		String rpta = negocioAlohandes.consultarFuncionamiento();
+    		panelDatos.actualizarInterfaz(rpta);
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void consultarBuenosClientes() {
+    	try
+    	{
+    		String rpta = negocioAlohandes.consultarBuenosClientes();
+    		panelDatos.actualizarInterfaz(rpta);
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
 
 	/* ****************************************************************
 	 * 			Métodos administrativos

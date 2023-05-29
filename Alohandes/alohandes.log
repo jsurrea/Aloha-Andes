@@ -60,3 +60,6 @@ ORA-00001: restricción única (ISIS2304D33202310.SYS_C001027764) violada
 21:51:39,844 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó ofertasBajaDemanda
 21:51:48,944 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando analizarOperacion
 21:51:48,978 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó analizarOperacion
+22:32:25,484 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+22:32:25,486 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+22:32:25,542 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD

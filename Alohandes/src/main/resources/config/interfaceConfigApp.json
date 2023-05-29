@@ -88,6 +88,22 @@
 				{
 					"label": "RFC9 - Oferta con baja demanda",
 					"event": "ofertasBajaDemanda"
+				},
+				{
+					"label": "RFC10 - Consultar Consumo 1",
+					"event": "consultarConsumo1"
+				},
+				{
+					"label": "RFC11 - Consultar Consumo 2",
+					"event": "consultarConsumo2"
+				},
+				{
+					"label": "RFC12 - Consultar Funcionamiento",
+					"event": "consultarFuncionamiento"
+				},
+				{
+					"label": "RFC13 - Consultar Buenos Clientes",
+					"event": "consultarBuenosClientes"
 				}
 			]
 		},	
