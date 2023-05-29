@@ -218,3 +218,29 @@ ORA-00933: comando SQL no terminado correctamente
 21:43:43,562 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
 21:43:43,564 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
 21:43:43,597 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:44:24,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarConsumo1
+21:44:29,644 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarConsumo1
+21:44:45,674 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarConsumo1
+21:44:45,767 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarConsumo1
+21:44:57,322 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarConsumo2
+21:44:57,806 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarConsumo2
+21:45:02,486 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarFuncionamiento
+21:45:03,920 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+
+21:45:03,934 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarFuncionamiento
+21:45:45,480 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarBuenosClientes
+21:45:46,146 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarBuenosClientes
+21:45:49,438 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarFuncionamiento
+21:45:50,612 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+
+21:45:50,628 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarFuncionamiento
+21:51:30,588 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:51:30,589 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:51:30,638 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:51:34,194 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:51:34,195 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:51:34,226 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:51:45,835 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarFuncionamiento
+21:51:52,832 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarFuncionamiento
+21:51:55,781 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Ejecutando consultarFuncionamiento
+21:51:56,512 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.NegocioAlohandes] - Terminó consultarFuncionamiento
