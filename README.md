@@ -23,3 +23,6 @@ cd Alohandes
 javac -cp "lib/*" -encoding UTF-8 -d bin $(find src -name "*.java")
 java -cp "bin:lib/*:src/main/resources" uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp
 ```
+
+
+<img width="600" alt="aloha-andes" src="https://github.com/user-attachments/assets/60f51d4e-ece5-476f-add2-cdbbda15e638" />
