@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/Aloha-Andes/">
+  <title>Aloha-Andes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <h1>Aloha-Andes</h1>
+      <p>Java Swing application for the Alohandes transactional systems project, with Oracle-backed persistence and query/report operations.</p>
+      <a class="cta" href="https://github.com/jsurrea/Aloha-Andes">View on GitHub</a>
+      <div class="badges" aria-label="Tech stack badges">
+        <img alt="Java" src="https://img.shields.io/badge/Java-8%2B-007396?logo=openjdk&logoColor=white">
+        <img alt="Oracle" src="https://img.shields.io/badge/Database-Oracle-F80000?logo=oracle&logoColor=white">
+        <img alt="JDBC" src="https://img.shields.io/badge/Access-JDBC-4A4A4A">
+        <img alt="Swing" src="https://img.shields.io/badge/UI-Swing-6DB33F">
+        <img alt="DataNucleus JDO" src="https://img.shields.io/badge/Persistence-DataNucleus%20JDO-2E86C1">
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>What it does</h2>
+      <p>The application exposes menu-driven operations defined in <code>interfaceConfigApp.json</code> for creating operators, offers, clients, and reservations, plus analytical queries such as incomes, popular offers, occupancy, availability, and customer usage analysis.</p>
+      <p>Its implementation is split across Swing UI (<code>interfazApp</code>), business layer (<code>negocio</code>), and SQL persistence classes (<code>persistencia</code>).</p>
+    </section>
+
+    <section>
+      <h2>Demo / Screenshots</h2>
+      <div class="grid">
+        <figure>
+          <img class="responsive" src="assets/logo.png" alt="Alohandes logo">
+        </figure>
+        <figure>
+          <img class="responsive" src="assets/modelo-conceptual.png" alt="Alohandes conceptual model">
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Getting started</h2>
+      <pre><code>docker run -d --name oracle-db \
+  -p 1521:1521 \
+  -p 5500:5500 \
+  -e ORACLE_PWD=adminpassword \
+  container-registry.oracle.com/database/express:latest</code></pre>
+      <pre><code>cd Alohandes
+javac -cp "lib/*" -encoding UTF-8 -d bin $(find src -name "*.java")
+java -cp "bin:lib/*:src/main/resources" uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp</code></pre>
+      <p>Database connection settings are in <code>Alohandes/src/main/resources/META-INF/persistence.xml</code>.</p>
+    </section>
+
+    <section>
+      <h2>Project structure</h2>
+      <pre><code>Alohandes/
+  src/main/java/uniandes/isis2304/alohandes/
+    interfazApp/      # Swing UI and menu actions
+    negocio/          # Business facade and domain entities
+    persistencia/     # SQL and persistence operations
+  src/main/resources/
+    META-INF/persistence.xml
+    config/interfaceConfigApp.json
+  lib/                # bundled dependencies
+  data/               # SQL and sample data assets
+Proyecto/             # iteration deliverables
+Talleres/             # workshop deliverables</code></pre>
+    </section>
+
+    <section>
+      <h2>License</h2>
+      <p>No license file is currently present in this repository.</p>
+    </section>
+  </main>
+
+  <footer>
+    Built from repository sources for GitHub Pages deployment.
+  </footer>
+</body>
+</html>
