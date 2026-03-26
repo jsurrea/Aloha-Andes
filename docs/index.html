@@ -14,7 +14,7 @@
   <header>
     <div class="container hero">
       <h1>Aloha-Andes</h1>
-      <p>Java Swing application for the Alohandes transactional systems project, with Oracle-backed persistence and query/report operations.</p>
+      <p>Java Swing application for the Aloha-Andes (Alohandes) transactional systems project, with Oracle-backed persistence and query/report operations.</p>
       <a class="cta" href="https://github.com/jsurrea/Aloha-Andes">View on GitHub</a>
       <div class="badges" aria-label="Tech stack badges">
         <img alt="Java" src="https://img.shields.io/badge/Java-8%2B-007396?logo=openjdk&logoColor=white">
@@ -27,35 +27,56 @@
   </header>
 
   <main class="container">
-    <section>
+    <section class="section-soft">
       <h2>What it does</h2>
       <p>The application exposes menu-driven operations defined in <code>interfaceConfigApp.json</code> for creating operators, offers, clients, and reservations, plus analytical queries such as incomes, popular offers, occupancy, availability, and customer usage analysis.</p>
       <p>Its implementation is split across Swing UI (<code>interfazApp</code>), business layer (<code>negocio</code>), and SQL persistence classes (<code>persistencia</code>).</p>
     </section>
 
     <section>
-      <h2>Demo / Screenshots</h2>
-      <div class="grid">
-        <figure>
-          <img class="responsive" src="assets/logo.png" alt="Alohandes logo">
-        </figure>
-        <figure>
-          <img class="responsive" src="assets/modelo-conceptual.png" alt="Alohandes conceptual model">
-        </figure>
-      </div>
+      <h2>Project visuals</h2>
+
+      <article class="visual-block">
+        <h3>Application interface (from the prior README image)</h3>
+        <img class="visual" src="assets/app-screenshot.png" alt="Aloha-Andes desktop application UI">
+        <p>This screenshot shows the running Swing desktop interface with the menu options for functional requirements (RF) and query requirements (RFC), matching the operations defined in the repository configuration.</p>
+      </article>
+
+      <article class="visual-block">
+        <h3>Conceptual model used in project iterations</h3>
+        <img class="visual" src="assets/modelo-conceptual.png" alt="Aloha-Andes conceptual model diagram">
+        <p>The conceptual model image is part of the project deliverables and documents the main entities used by the application domain and persistence layer.</p>
+      </article>
+
+      <article class="visual-block">
+        <h3>Project identity graphic</h3>
+        <img class="visual" src="assets/logo.png" alt="Aloha-Andes logo">
+        <p>The visual style of this page uses colors sampled from the project logo (blue and warm orange) to better match the original project branding.</p>
+      </article>
     </section>
 
-    <section>
+    <section class="section-soft">
       <h2>Getting started</h2>
-      <pre><code>docker run -d --name oracle-db \
+      <div class="cmd-blocks">
+        <pre><code>docker run -d --name oracle-db \
   -p 1521:1521 \
   -p 5500:5500 \
   -e ORACLE_PWD=adminpassword \
   container-registry.oracle.com/database/express:latest</code></pre>
-      <pre><code>cd Alohandes
+        <pre><code>cd Alohandes
 javac -cp "lib/*" -encoding UTF-8 -d bin $(find src -name "*.java")
 java -cp "bin:lib/*:src/main/resources" uniandes.isis2304.alohandes.interfazApp.InterfazAlohandesApp</code></pre>
+      </div>
       <p>Database connection settings are in <code>Alohandes/src/main/resources/META-INF/persistence.xml</code>.</p>
+    </section>
+
+    <section>
+      <h2>Tech stack</h2>
+      <ul class="stack-list">
+        <li>Java desktop application using Swing</li>
+        <li>Oracle database connectivity through JDBC and DataNucleus JDO</li>
+        <li>Log4j for logging and GSON for JSON configuration loading</li>
+      </ul>
     </section>
 
     <section>
