@@ -1,6 +1,6 @@
 # Aloha-Andes
 
-Java desktop application for managing lodging offers, clients, reservations, and analytical queries for the **Alohandes** transactional systems project.
+Java desktop application for managing lodging offers, clients, reservations, and analytical queries for the **Aloha-Andes (Alohandes)** transactional systems project.
 
 ![Java](https://img.shields.io/badge/Java-8%2B-007396?logo=openjdk&logoColor=white)
 ![Oracle](https://img.shields.io/badge/Database-Oracle-F80000?logo=oracle&logoColor=white)
@@ -69,4 +69,4 @@ Conceptual model:
 
 ## License
 
-No `LICENSE` file is currently present in this repository.
+No `LICENSE` file is currently present in this repository. Until one is added, usage rights are not explicitly granted in the repository.
