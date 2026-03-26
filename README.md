@@ -59,14 +59,10 @@ java -cp "bin:lib/*:src/main/resources" uniandes.isis2304.alohandes.interfazApp.
 
 ## Images in repository
 
-Application logo:
-
-![Alohandes Logo](Alohandes/src/main/resources/config/logo.png)
-
 Conceptual model:
 
 ![Modelo Conceptual](Alohandes/data/ModeloConceptualActualizado.png)
 
 ## License
 
-No `LICENSE` file is currently present in this repository. Until one is added, usage rights are not explicitly granted in the repository.
+This project is licensed under the [MIT License](LICENSE).
